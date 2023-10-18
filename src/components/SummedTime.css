@@ -1,0 +1,16 @@
+.summed-time {
+    background-color: lightcyan;
+    min-height: 8vh;
+    margin: 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+}
+
+h1{
+    font-size: calc(12px + 2vmin);
+    margin: 10px;
+    color: black;
+}
