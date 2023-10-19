@@ -53,32 +53,41 @@ function TicketForm() {
         type="text"
         value={inputValue}
         onChange={handleInputChange}
-        placeholder="Add task" />
+        placeholder="Add task" 
+        id="task-name"
+      />
 
-      <div>
-        <DatePicker
-          showIcon
-          selected={startDate}
-          onChange={(date) => setStartDate(date)}
-          timeFormat="p"
-          timeIntervals={1}
-          timeInputLabel="Time:"
-          dateFormat="MMMM d, yyyy h:mm aa"
-          showTimeInput 
-        />
-        <DatePicker
-          showIcon
-          selected={endDate}
-          onChange={(date) => setEndDate(date)}
-          timeFormat="p"
-          timeIntervals={1}
-          timeInputLabel="Time:"
-          dateFormat="MMMM d, yyyy h:mm aa"
-          showTimeInput
-          showTimeSelect 
-        />
+      <div className="pickers">
+        <div>
+          <DatePicker
+            id="start-datepicker"
+            showIcon
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+            timeFormat="p"
+            timeIntervals={1}
+            timeInputLabel="Time:"
+            dateFormat="MMMM d, yyyy h:mm aa"
+            showTimeInput 
+          />
+        </div>
+        <div>
+          <DatePicker
+            id="end-datepicker"
+            showIcon
+            selected={endDate}
+            onChange={(date) => setEndDate(date)}
+            timeFormat="p"
+            timeIntervals={1}
+            timeInputLabel="Time:"
+            dateFormat="MMMM d, yyyy h:mm aa"
+            showTimeInput
+            showTimeSelect 
+          />
+        </div>
+      </div>
 
-        <p>{`Duration: ${timeDifference}`}</p>
+        <div id='task-time'>{`Duration: ${timeDifference}`}</div>
 
         <button
           onClick={() => {
@@ -90,8 +99,9 @@ function TicketForm() {
           zapisz
         </button>
       </div>
-    </div>
+
     <SummedTime secsToSum={secsToSum} />
+
     </>
   );
 }

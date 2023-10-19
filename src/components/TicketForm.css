@@ -4,13 +4,38 @@
     margin: 5px;
     border-radius: 5px;
     display: flex;
+    justify-content: space-between;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
     width: 90%;
 }
 
-h1{
-    font-size: calc(12px + 2vmin);
-    margin: 10px;
-    color: white;
+#task-name {
+    display: inline;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 10px;
+}
+
+.pickers{
+    display: flex;
+    flex-direction: row;
+}
+
+#start-datepicker,
+#end-datepicker {
+    border-radius: 5px;
+    margin-left: 4px;
+    min-height: 2vh;
+}
+
+#task-time {
+    display: inline;
+    padding: 20px;
+}
+
+
+button {
+    margin-right: 40px;
+    display: inline;
 }

@@ -8,9 +8,3 @@
     justify-content: center;
     width: 90%;
 }
-
-h1{
-    font-size: calc(12px + 2vmin);
-    margin: 10px;
-    color: black;
-}
