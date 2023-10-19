@@ -7,10 +7,5 @@
     align-items: center;
     justify-content: center;
     width: 90%;
-}
-
-h1 {
-    font-size: calc(12px + 2vmin);
-    margin: 10px;
-    color: white;
+    border: 3px dashed #9c2600;
 }

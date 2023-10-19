@@ -1,5 +1,5 @@
 .ticket {
-    background-color: lightblue;
+    background-color:#6e7f80;
     min-height: 8vh;
     margin: 5px;
     border-radius: 5px;
@@ -8,13 +8,15 @@
     flex-direction: row;
     align-items: center;
     width: 90%;
+    color: white;
 }
 
 #task-name {
-    display: inline;
     border-radius: 5px;
-    padding: 10px;
-    margin: 10px 10px;
+    min-height: 2.5vh;
+    min-width: calc(30px + 12vmin);
+    margin-left: 1vw;
+    background-color: #f0eadc;
 }
 
 .pickers{
@@ -25,15 +27,16 @@
 #start-datepicker,
 #end-datepicker {
     border-radius: 5px;
-    margin-left: 4px;
+    margin: 5px;
     min-height: 2vh;
+    min-width: 14vmin;
+    background-color: #f0eadc;
 }
 
 #task-time {
     display: inline;
-    padding: 20px;
+    padding: 20px;  
 }
-
 
 button {
     margin-right: 40px;

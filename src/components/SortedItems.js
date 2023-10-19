@@ -1,10 +1,10 @@
 import React from 'react';
 import './SortedItems.css';
 
-function SortedItems() {
+function SortedItems({taskName}) {
   return (
     <div className='items'>
-      <p>sorted items</p>
+      <p>{taskName}</p>
     </div>
   );
 }

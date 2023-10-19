@@ -1,6 +1,6 @@
 .summed-time {
-    background-color: lightcyan;
-    min-height: 8vh;
+    /* background-color:#c0c0c0; */
+    min-height: 6vh;
     margin: 5px;
     border-radius: 5px;
     display: flex;

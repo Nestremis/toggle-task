@@ -3,11 +3,7 @@ import './SummedTime.css';
 
 function SummedTime({secsToSum}) {
   const [sumTime, setSumTime] = useState(secsToSum);
-
-  console.log(secsToSum);
-  console.log(sumTime);
-  
-  
+    
   useEffect(() => {
     setSumTime((sumTime) => sumTime + secsToSum);
   }, [secsToSum]);
@@ -17,7 +13,7 @@ function SummedTime({secsToSum}) {
 
   return (
     <div className='summed-time'>
-       <p>{`Duration: ${hours} hours ${minutes} minutes`}</p>
+       <p>{`All tasks duration: ${hours} hours ${minutes} minutes`}</p>
     </div>
   );
 }

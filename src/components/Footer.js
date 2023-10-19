@@ -4,7 +4,7 @@ import './Footer.css';
 function Footer() {
   return (
     <footer>
-      <p>toggl©2023</p>
+      <p>&nbsp;toggl©2023&nbsp;</p>
     </footer>
   );
 }

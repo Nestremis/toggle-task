@@ -3,6 +3,7 @@ import './TicketForm.css';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import SummedTime from './SummedTime';
+import SortedItems from './SortedItems';
 
 function TicketForm() {
   const [startDate, setStartDate] = useState(new Date());
@@ -26,24 +27,27 @@ function TicketForm() {
 
     return `${hours} hours ${minutes} minutes`;
   }
-
   const timeDifference = getTimeDifference(startDate, endDate);
 
   function getTimeToSum(startDate, endDate) {
     const timeDifferenceInMilliseconds = endDate - startDate;
     const timeDifferenceInSecs = Math.floor(timeDifferenceInMilliseconds / 1000);
 
-    console.log(timeDifferenceInSecs);
     return timeDifferenceInSecs;
   }
-  // const secsDiff = getTimeToSum(startDate, endDate);
+
+  const items = [];
+
+  const saveTaskItem = () =>  {
+    items.push(inputValue);
+  };
   
   const saveTask = () => {
     setSavedValue(inputValue);
     setInputValue('');
     setDuration(getTimeDifference(startDate, endDate));
-    // getTimeToSum(startDate, endDate);
     setSecsToSum(getTimeToSum(startDate, endDate));
+    saveTaskItem(inputValue);
   };
 
   return (
@@ -87,7 +91,7 @@ function TicketForm() {
         </div>
       </div>
 
-        <div id='task-time'>{`Duration: ${timeDifference}`}</div>
+        <div id='task-time'>{`${timeDifference}`}</div>
 
         <button
           onClick={() => {
@@ -101,7 +105,8 @@ function TicketForm() {
       </div>
 
     <SummedTime secsToSum={secsToSum} />
-
+    
+    <SortedItems taskName={items} />
     </>
   );
 }
