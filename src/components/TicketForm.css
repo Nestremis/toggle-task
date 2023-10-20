@@ -7,8 +7,9 @@
     justify-content: space-between;
     flex-direction: row;
     align-items: center;
-    width: 90%;
+    width: 90vw;
     color: white;
+    box-shadow: 3px 3px 6px 1px #232323;
 }
 
 #task-name {
@@ -17,6 +18,7 @@
     min-width: calc(30px + 12vmin);
     margin-left: 1vw;
     background-color: #f0eadc;
+    box-shadow: inset 1px 1px 4px 1px #232323;
 }
 
 .pickers{
@@ -28,9 +30,10 @@
 #end-datepicker {
     border-radius: 5px;
     margin: 5px;
-    min-height: 2vh;
+    min-height: 1.5vh;
     min-width: 14vmin;
     background-color: #f0eadc;
+    box-shadow: inset 1px 1px 4px 1px #232323;
 }
 
 #task-time {
@@ -40,5 +43,18 @@
 
 button {
     margin-right: 40px;
-    display: inline;
+    padding: 0;
+    background: none; 
+    border: none;
+    cursor: pointer; 
+}
+    
+.plus {
+    width: calc(2rem + 5vmin);
+    height: calc(2rem + 5vmin);
+    transition: .5s;
+}
+      
+.plus:hover {
+    fill: #0095c6;
 }

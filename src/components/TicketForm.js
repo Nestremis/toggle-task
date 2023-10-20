@@ -4,6 +4,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import SummedTime from './SummedTime';
 import SortedItems from './SortedItems';
+import { ReactComponent as PlusIcon } from '../icons/plus-rec.svg';
 
 function TicketForm() {
   const [startDate, setStartDate] = useState(new Date());
@@ -15,9 +16,8 @@ function TicketForm() {
   const [duration, setDuration] = useState('');
   const [secsToSum, setSecsToSum] = useState(0);
 
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
+  const [items, setItems] = useState([]);
+  console.log(items);
 
   function getTimeDifference(startDate, endDate) {
     const timeDifferenceInMilliseconds = endDate - startDate;
@@ -35,19 +35,19 @@ function TicketForm() {
 
     return timeDifferenceInSecs;
   }
-
-  const items = [];
-
-  const saveTaskItem = () =>  {
-    items.push(inputValue);
-  };
   
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
   const saveTask = () => {
+    if (inputValue !== '') {
     setSavedValue(inputValue);
     setInputValue('');
     setDuration(getTimeDifference(startDate, endDate));
     setSecsToSum(getTimeToSum(startDate, endDate));
-    saveTaskItem(inputValue);
+    setItems([...items, inputValue]);
+    }
   };
 
   return (
@@ -100,13 +100,15 @@ function TicketForm() {
             saveTask();
           }}
         >
-          zapisz
+          {/* <PlusIcon id='plus'/> */}
+          <PlusIcon className="plus" width="7vmin" height="7vmin" />
+
         </button>
       </div>
 
     <SummedTime secsToSum={secsToSum} />
     
-    <SortedItems taskName={items} />
+    <SortedItems items={items} />
     </>
   );
 }

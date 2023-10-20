@@ -1,5 +1,4 @@
 .items {
-    /* background-color:#6e7f80; */
     background-color: #c0c0c0;
     min-height: 8vh;
     margin: 5px;
@@ -7,5 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 90%;
+    width: 80vw;
+    background: #c0c0c0;
+    background: linear-gradient(180deg, hsl(0, 0%, 85%) 0%, #c0c0c0 100%);
 }

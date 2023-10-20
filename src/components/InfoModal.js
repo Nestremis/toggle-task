@@ -4,7 +4,7 @@ import './InfoModal.css';
 function InfoModal() {
   return (
     <div className='modal'>
-      <p>info modal</p>
+      <p>info modal</p>      
     </div>
   );
 }
