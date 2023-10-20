@@ -19,6 +19,12 @@
     margin-left: 1vw;
     background-color: #f0eadc;
     box-shadow: inset 1px 1px 4px 1px #232323;
+    font-size: calc(8px + 1vmin);
+}
+#task-name:focus{
+    outline: none;
+    color:darkslategray;
+    background-color: #e5d9bb;
 }
 
 .pickers{
@@ -26,14 +32,20 @@
     flex-direction: row;
 }
 
+
 #start-datepicker,
 #end-datepicker {
     border-radius: 5px;
     margin: 5px;
     min-height: 1.5vh;
-    min-width: 14vmin;
+    min-width: 160px;
     background-color: #f0eadc;
     box-shadow: inset 1px 1px 4px 1px #232323;
+}
+#start-datepicker:focus,
+#end-datepicker:focus {
+    outline: none;
+    font-weight: bolder;
 }
 
 #task-time {
@@ -57,4 +69,5 @@ button {
       
 .plus:hover {
     fill: #0095c6;
+    /* fill: #9c2600; */
 }

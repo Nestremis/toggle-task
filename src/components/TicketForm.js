@@ -100,7 +100,6 @@ function TicketForm() {
             saveTask();
           }}
         >
-          {/* <PlusIcon id='plus'/> */}
           <PlusIcon className="plus" width="7vmin" height="7vmin" />
 
         </button>
