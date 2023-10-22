@@ -4,7 +4,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import SummedTime from './SummedTime';
 import SortedItems from './SortedItems';
-import { ReactComponent as PlusIcon } from '../icons/plus-rec.svg';
+import { ReactComponent as PlusIcon } from '../icons/plus.svg';
 
 function TicketForm() {
   const [startDate, setStartDate] = useState(new Date());
@@ -25,7 +25,7 @@ function TicketForm() {
     const hours = Math.floor(timeDifferenceInSeconds / 3600);
     const minutes = Math.floor((timeDifferenceInSeconds % 3600) / 60);
 
-    return `${hours} hours ${minutes} minutes`;
+    return `${hours} h ${minutes} min`;
   }
   const timeDifference = getTimeDifference(startDate, endDate);
 
@@ -41,13 +41,24 @@ function TicketForm() {
   };
 
   const saveTask = () => {
-    if (inputValue !== '') {
     setSavedValue(inputValue);
+    if (inputValue !== '') {
+      const newItem = {
+        id: Math.random(),
+        name: inputValue,
+        duration: timeDifference,
+        key: Math.random()
+      };
     setInputValue('');
     setDuration(getTimeDifference(startDate, endDate));
     setSecsToSum(getTimeToSum(startDate, endDate));
-    setItems([...items, inputValue]);
+    setItems([...items, newItem]);
     }
+  };
+
+  const removeItem = (id) => {
+    const updatedItems = items.filter((item) => item.id !== id);
+    setItems(updatedItems);
   };
 
   return (
@@ -91,23 +102,24 @@ function TicketForm() {
         </div>
       </div>
 
-        <div id='task-time'>{`${timeDifference}`}</div>
+      <div id='task-time'>
+        {`${timeDifference}`}
+      </div>
 
-        <button
-          onClick={() => {
-            setStartDate(new Date());
-            setEndDate(new Date());
-            saveTask();
-          }}
-        >
-          <PlusIcon className="plus" width="7vmin" height="7vmin" />
-
-        </button>
+      <button
+        onClick={() => {
+          setStartDate(new Date());
+          setEndDate(new Date());
+          saveTask();
+        }}
+      >
+        <PlusIcon className="plus" width="7vmin" height="7vmin" />
+      </button>
       </div>
 
     <SummedTime secsToSum={secsToSum} />
     
-    <SortedItems items={items} />
+    <SortedItems items={items} removeItem={removeItem} />
     </>
   );
 }

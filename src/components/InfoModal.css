@@ -1,7 +1,7 @@
 .modal {
     position: fixed;
     z-index: 100;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translateX(-50%);
     background-color: whitesmoke;
@@ -13,16 +13,16 @@
     border: 3px dashed #9c2600;
     border-radius: 5px;
     box-shadow: 8px 8px 20px 4px #414141;
-    animation: hopIn 400ms ease;
+    animation: hopIn 300ms ease;
 }
 
 @keyframes hopIn {
     0% {
-        left: 0; 
+        top: 100%; 
         opacity: 0;
     }
     100% {
-        left: 50%;
+        top: 40%;
         opacity: 1;
     }
 }

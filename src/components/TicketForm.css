@@ -1,8 +1,8 @@
 .ticket {
-    background-color:#6e7f80;
-    min-height: 8vh;
+    position: relative;
+    background: linear-gradient(0deg, rgba(64,78,79,1) 0%, rgba(110,127,128,1) 100%);    min-height: 8vh;
     margin: 5px;
-    border-radius: 5px;
+    border-radius: 8px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -10,16 +10,21 @@
     width: 90vw;
     color: white;
     box-shadow: 3px 3px 6px 1px #232323;
+
+    @media screen and (max-width: 820px) {
+        overflow-y: unset;
+        flex-direction: column;
+      }
 }
 
 #task-name {
     border-radius: 5px;
     min-height: 2.5vh;
     min-width: calc(30px + 12vmin);
-    margin-left: 1vw;
     background-color: #f0eadc;
     box-shadow: inset 1px 1px 4px 1px #232323;
-    font-size: calc(8px + 1vmin);
+    font-size: calc(15px + 0.5vmin);
+    margin: 5px 15px;
 }
 #task-name:focus{
     outline: none;
@@ -30,13 +35,18 @@
 .pickers{
     display: flex;
     flex-direction: row;
+    margin: 5px;
+    
+    @media screen and (max-width: 720px) {
+        overflow-y: unset;
+        flex-direction: column;
+      }
 }
 
 
 #start-datepicker,
 #end-datepicker {
     border-radius: 5px;
-    margin: 5px;
     min-height: 1.5vh;
     min-width: 160px;
     background-color: #f0eadc;
@@ -49,25 +59,37 @@
 }
 
 #task-time {
-    display: inline;
-    padding: 20px;  
+    font-size: calc(10px + 1vw);
+    font-weight: bolder;
+    color: beige;
+    margin-right: 14vw;
+    /* margin-right: calc(auto + 60px); */
+    position: relative;
+
+    @media screen and (max-width: 820px) {
+        margin: auto;
+      }
 }
 
 button {
-    margin-right: 40px;
     padding: 0;
-    background: none; 
+    background: linear-gradient(0deg, rgba(113,149,5,1) 0%, rgba(146,192,6,1) 100%);
+    min-height: 100%; 
+    min-width: 60px;
     border: none;
     cursor: pointer; 
+    position: absolute;
+    right: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
-    
+
 .plus {
     width: calc(2rem + 5vmin);
-    height: calc(2rem + 5vmin);
     transition: .5s;
+    margin-right: 10%;
 }
       
 .plus:hover {
-    fill: #0095c6;
     /* fill: #9c2600; */
 }

@@ -1,12 +1,33 @@
 .items {
-    background-color: #c0c0c0;
-    min-height: 8vh;
-    margin: 5px;
-    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #c0c0c0;
+    min-height: 8vh;
+    border-radius: 8px;
     width: 80vw;
     background: #c0c0c0;
     background: linear-gradient(180deg, hsl(0, 0%, 85%) 0%, #c0c0c0 100%);
+    margin: 5px;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .remove-button {
+    position: absolute;
+    right: 0;
+    min-width: 60px;
+    min-height: 8vh;
+    background: rgb(0,118,156);
+    background: linear-gradient(0deg, rgba(0,118,156,1) 0%, rgba(0,171,227,1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+
+.delete {
+    width: calc(2rem + 5vmin);
 }
+  
