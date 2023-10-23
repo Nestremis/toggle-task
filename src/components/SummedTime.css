@@ -1,5 +1,4 @@
 .summed-time {
-    /* background-color:#c0c0c0; */
     min-height: 6vh;
     margin: 5px;
     border-radius: 5px;
@@ -7,4 +6,9 @@
     align-items: center;
     justify-content: center;
     width: 90%;
+}
+
+#sum {
+    font-size: calc(10px + 1vmin);
+    color: darkslategrey;
 }

@@ -17,7 +17,6 @@ function TicketForm() {
   const [secsToSum, setSecsToSum] = useState(0);
 
   const [items, setItems] = useState([]);
-  console.log(items);
 
   function getTimeDifference(startDate, endDate) {
     const timeDifferenceInMilliseconds = endDate - startDate;
@@ -35,11 +34,10 @@ function TicketForm() {
 
     return timeDifferenceInSecs;
   }
-
+  console.log(startDate);
   const startDateForModal = startDate.toLocaleString();
   const endDateForModal = endDate.toLocaleString();
-  // const createdAtForModal = dat
-  // console.log(createdAtForModal);
+  
   const createdAt = () => {
     function shorterDate(date) {
       const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
@@ -50,7 +48,7 @@ function TicketForm() {
 
     return formattedTime;
   }
-  const shorterTimeFormat = createdAt();
+  const formattedTimeForModal = createdAt();
   
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -65,9 +63,9 @@ function TicketForm() {
         name: inputValue,
         duration: timeDifference,
         startDate: startDateForModal,
+        numeric: startDate,
         endDate: endDateForModal,
-        // createdTime: Date().toLocaleString().slice("GMT")
-        createdTime: shorterTimeFormat,
+        createdTime: formattedTimeForModal,
       };
     setInputValue('');
     setDuration(getTimeDifference(startDate, endDate));
@@ -75,6 +73,11 @@ function TicketForm() {
     setItems([...items, newItem]);
     }
   };
+
+  const sortedItems = items.slice().sort((a, b) => {
+    return new Date(a.numeric) - new Date(b.numeric);
+  });  
+  console.log(sortedItems);
 
   const removeItem = (id) => {
     const updatedItems = items.filter((item) => item.id !== id);
@@ -139,7 +142,7 @@ function TicketForm() {
 
     <SummedTime secsToSum={secsToSum} />
     
-    <SortedItems items={items} removeItem={removeItem} />
+    <SortedItems items={sortedItems} removeItem={removeItem} />
     </>
   );
 }

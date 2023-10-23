@@ -12,7 +12,7 @@
     position: relative;
     cursor: pointer;
     color: darkslategrey;
-    font-size: calc(8px + 2vmin);
+    font-size: calc(8px + 1.5vmin);
     font-weight: bolder;
     letter-spacing: 1px;
     box-shadow: 2px 2px 5px 1px #232323;
