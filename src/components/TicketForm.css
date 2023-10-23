@@ -8,6 +8,7 @@
     flex-direction: row;
     align-items: center;
     width: 90vw;
+    min-height: 10vh;
     color: white;
     box-shadow: 3px 3px 6px 1px #232323;
 
@@ -18,8 +19,8 @@
 }
 
 #task-name {
-    border-radius: 5px;
-    min-height: 2.5vh;
+    border-radius: 8px;
+    min-height: 3vh;
     min-width: calc(30px + 12vmin);
     background-color: #f0eadc;
     box-shadow: inset 1px 1px 4px 1px #232323;
@@ -46,8 +47,8 @@
 
 #start-datepicker,
 #end-datepicker {
-    border-radius: 5px;
-    min-height: 1.5vh;
+    border-radius: 8px;
+    min-height: 2vh;
     min-width: 170px;
     background-color: #f0eadc;
     box-shadow: inset 1px 1px 4px 1px #232323;
@@ -55,7 +56,6 @@
 #start-datepicker:focus,
 #end-datepicker:focus {
     outline: none;
-    font-weight: bolder;
 }
 
 #task-time {
@@ -63,7 +63,6 @@
     font-weight: bolder;
     color: beige;
     margin-right: 14vw;
-    /* position: relative; */
 
     @media screen and (max-width: 820px) {
         margin: auto;
@@ -82,13 +81,8 @@ button {
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
-
 .plus {
     width: calc(2rem + 5vmin);
     transition: .5s;
     margin-right: 10%;
-}
-      
-.plus:hover {
-    /* fill: #9c2600; */
 }

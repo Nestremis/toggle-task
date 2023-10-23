@@ -9,13 +9,10 @@ import { ReactComponent as PlusIcon } from '../icons/plus.svg';
 function TicketForm() {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-
   const [inputValue, setInputValue] = useState('');
   const [savedValue, setSavedValue] = useState('');
-
   const [duration, setDuration] = useState('');
   const [secsToSum, setSecsToSum] = useState(0);
-
   const [items, setItems] = useState([]);
 
   function getTimeDifference(startDate, endDate) {
@@ -34,7 +31,6 @@ function TicketForm() {
 
     return timeDifferenceInSecs;
   }
-  console.log(startDate);
   const startDateForModal = startDate.toLocaleString();
   const endDateForModal = endDate.toLocaleString();
   
@@ -63,7 +59,7 @@ function TicketForm() {
         name: inputValue,
         duration: timeDifference,
         startDate: startDateForModal,
-        numeric: startDate,
+        numericStartDate: startDate,
         endDate: endDateForModal,
         createdTime: formattedTimeForModal,
       };
@@ -77,7 +73,6 @@ function TicketForm() {
   const sortedItems = items.slice().sort((a, b) => {
     return new Date(a.numeric) - new Date(b.numeric);
   });  
-  console.log(sortedItems);
 
   const removeItem = (id) => {
     const updatedItems = items.filter((item) => item.id !== id);
@@ -103,23 +98,29 @@ function TicketForm() {
             selected={startDate}
             onChange={(date) => setStartDate(date)}
             timeFormat="p"
-            timeIntervals={1}
+            timeIntervals={15}
             timeInputLabel="Time:"
             dateFormat="MMMM d, yyyy h:mm aa"
-            showTimeInput 
+            showTimeSelect
+
+            minDate={new Date()}
+            fixedHeight
+
+            arrow={<div style={{ backgroundColor: "red" }}>arrow</div>}
+            // showPopperArrow={false}
           />
         </div>
         <div>
           <DatePicker
             id="end-datepicker"
+            minDate={startDate}
             showIcon
             selected={endDate}
             onChange={(date) => setEndDate(date)}
             timeFormat="p"
-            timeIntervals={1}
+            timeIntervals={15}
             timeInputLabel="Time:"
             dateFormat="MMMM d, yyyy h:mm aa"
-            showTimeInput
             showTimeSelect 
           />
         </div>
@@ -140,9 +141,9 @@ function TicketForm() {
       </button>
       </div>
 
-    <SummedTime secsToSum={secsToSum} />
-    
+    <SummedTime secsToSum={secsToSum} />   
     <SortedItems items={sortedItems} removeItem={removeItem} />
+
     </>
   );
 }
