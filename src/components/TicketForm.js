@@ -35,6 +35,22 @@ function TicketForm() {
 
     return timeDifferenceInSecs;
   }
+
+  const startDateForModal = startDate.toLocaleString();
+  const endDateForModal = endDate.toLocaleString();
+  // const createdAtForModal = dat
+  // console.log(createdAtForModal);
+  const createdAt = () => {
+    function shorterDate(date) {
+      const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+      return date.toLocaleString(undefined, options);
+    }
+    const createdTime = new Date();
+    const formattedTime = shorterDate(createdTime);
+
+    return formattedTime;
+  }
+  const shorterTimeFormat = createdAt();
   
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -43,11 +59,15 @@ function TicketForm() {
   const saveTask = () => {
     setSavedValue(inputValue);
     if (inputValue !== '') {
+      createdAt(Date());
       const newItem = {
         id: Math.random(),
         name: inputValue,
         duration: timeDifference,
-        key: Math.random()
+        startDate: startDateForModal,
+        endDate: endDateForModal,
+        // createdTime: Date().toLocaleString().slice("GMT")
+        createdTime: shorterTimeFormat,
       };
     setInputValue('');
     setDuration(getTimeDifference(startDate, endDate));

@@ -26,3 +26,26 @@
         opacity: 1;
     }
 }
+
+.modal-content {
+    font-size: calc(6px + 1vmin);
+    line-height: 2;
+    text-align: start;
+    color: darkslategrey;
+    margin: 1rem;
+}
+
+.modal-line {
+    display: flex; 
+    justify-content: space-between;
+    margin: 2rem;
+}
+
+.bolder{
+    font-weight: bolder;
+    margin-left: 4rem;
+}
+
+.longer{
+    margin-left: 2rem;
+}
