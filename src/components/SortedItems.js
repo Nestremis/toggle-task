@@ -49,7 +49,7 @@ function SortedItems({ items, removeItem }) {
               className="remove-button"
               onClick={() => removeItem(item.id)}
             >
-              <DeleteIcon className="delete" width="4vmin" height="4vmin" />
+              <DeleteIcon className="delete" width="5vmin" height="5vmin" />
             </div>
           </div>
 

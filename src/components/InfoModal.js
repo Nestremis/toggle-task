@@ -14,9 +14,8 @@ function InfoModal({ item, showInfo, onClose }) {
           className="modal"
           id={item.id}
           style={modalStyle}
+          onClick={onClose}
         >
-          <button className="close-button" onClick={onClose}>Close</button>
-
           <div className="modal-content"> 
             <div className="modal-line">Task: <span className="bolder">{item.name}</span></div>
             <div className="modal-line">Duration: <span className="bolder">{item.duration}</span></div>

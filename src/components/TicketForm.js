@@ -76,7 +76,7 @@ function TicketForm() {
   };
 
   const sortedItems = items.slice().sort((a, b) => {
-    return new Date(a.numeric) - new Date(b.numeric);
+    return new Date(a.numericStartDate) - new Date(b.numericStartDate);
   });  
 
   const removeItem = (id) => {
@@ -110,12 +110,12 @@ function TicketForm() {
             dateFormat="MMMM d, yyyy h:mm aa"
             showTimeSelect
             fixedHeight
+            timeCaption="time"
           />
         </div>
         <div>
           <DatePicker
             id="end-datepicker"
-            // minDate={new Date()}
             minDate={startDate}
             showIcon
             selected={endDate}
@@ -126,6 +126,7 @@ function TicketForm() {
             dateFormat="MMMM d, yyyy h:mm aa"
             showTimeSelect 
             fixedHeight
+            timeCaption="time"
           />
         </div>
       </div>
@@ -135,13 +136,14 @@ function TicketForm() {
       </div>
 
       <button
+        id="add-task"
         onClick={() => {
           setStartDate(new Date());
           setEndDate(new Date());
           saveTask();
         }}
       >
-        <PlusIcon className="plus" width="7vmin" height="7vmin" />
+        <PlusIcon id="plus" width="7vmin" height="7vmin" />
       </button>
     </div>
 

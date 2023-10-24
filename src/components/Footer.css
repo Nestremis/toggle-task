@@ -16,7 +16,7 @@ footer {
     &::after {
         content:'';
         display: inline-block;
-        border-top: 1px solid hsla(75, 94%, 39%, 0.66);
+        border-top: 1px solid hsla(75, 94%, 39%, 0.25);
         width: 4rem;
         margin: 0 .2rem;
     }

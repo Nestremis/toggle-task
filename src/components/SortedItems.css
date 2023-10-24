@@ -18,19 +18,19 @@
     box-shadow: 2px 2px 5px 1px #232323;
   }
   
-  .remove-button {
-    position: absolute;
-    right: 0;
-    min-width: 60px;
-    min-height: 8vh;
-    background: rgb(0,118,156);
-    background: linear-gradient(0deg, rgba(0,118,156,1) 0%, rgba(0,171,227,1) 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-top-right-radius: 8px;
-    border-bottom-right-radius: 8px;
-  }
+.remove-button {
+  position: absolute;
+  right: 0;
+  min-width: 50px;
+  min-height: 8vh;
+  background: rgb(0,118,156);
+  background: linear-gradient(0deg, rgba(0,118,156,1) 0%, rgba(0,171,227,1) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
 
 .delete {
     width: calc(2rem + 5vmin);

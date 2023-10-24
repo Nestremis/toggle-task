@@ -12,11 +12,12 @@
     color: white;
     box-shadow: 3px 3px 6px 1px #232323;
 
-    @media screen and (max-width: 820px) {
+    @media screen and (max-width: 900px) {
         overflow-y: unset;
         flex-direction: column;
       }
 }
+
 
 #placeholder {
     border-radius: 8px;
@@ -33,18 +34,18 @@
     background-color: #e5d9bb;
 }
 
+
+
 .pickers{
     display: flex;
     flex-direction: row;
-    margin: 5px;
+    margin: 10px;
     
     @media screen and (max-width: 720px) {
         overflow-y: unset;
         flex-direction: column;
       }
 }
-
-
 #start-datepicker,
 #end-datepicker {
     border-radius: 8px;
@@ -52,24 +53,30 @@
     min-width: 170px;
     background-color: #f0eadc;
     box-shadow: inset 1px 1px 4px 1px #232323;
+    margin: 2px;
 }
 #start-datepicker:focus,
 #end-datepicker:focus {
     outline: none;
 }
 
+
+
 #task-time {
     font-size: calc(10px + 1vw);
     font-weight: bolder;
     color: beige;
     margin-right: 14vw;
+    min-width: calc(50px + 10vmin);
 
-    @media screen and (max-width: 820px) {
+    @media screen and (max-width: 900px) {
         margin: auto;
       }
 }
 
-button {
+
+
+#add-task {
     padding: 0;
     background: linear-gradient(0deg, rgba(113,149,5,1) 0%, rgba(146,192,6,1) 100%);
     min-height: 100%; 
@@ -81,7 +88,7 @@ button {
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
 }
-.plus {
+#plus {
     width: calc(2rem + 5vmin);
     transition: .5s;
     margin-right: 10%;

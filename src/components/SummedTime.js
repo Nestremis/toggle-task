@@ -13,7 +13,8 @@ function SummedTime({secsToSum}) {
 
   return (
     <div className='summed-time'>
-       <div id="sum">{`Total:  ${hours} hours ${minutes} minutes`}</div>
+       <div id="total"> Total: </div>
+       <div id="sum">{`${hours} hours ${minutes} minutes`}</div>
     </div>
   );
 }
