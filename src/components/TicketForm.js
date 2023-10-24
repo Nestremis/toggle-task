@@ -22,17 +22,13 @@ function TicketForm() {
     const timeDifferenceInSeconds = Math.floor(timeDifferenceInMilliseconds / 1000);
     const hours = Math.floor(timeDifferenceInSeconds / 3600);
     const minutes = Math.floor((timeDifferenceInSeconds % 3600) / 60);
-
-    return `${hours} h ${minutes} min`;
+    return {
+      formatted: `${hours} h ${minutes} min`,
+      numeric: timeDifferenceInSeconds
+    };
   }
-  
-  const timeDifference = getTimeDifference(startDate, endDate);
-  function getTimeToSum(startDate, endDate) {
-    const timeDifferenceInMilliseconds = endDate - startDate;
-    const timeDifferenceInSeconds = Math.floor(timeDifferenceInMilliseconds / 1000);
-    
-    return timeDifferenceInSeconds;
-  }
+  const timeDifferenceFormatted = getTimeDifference(startDate, endDate).formatted;
+  const timeDifferenceNumeric = getTimeDifference(startDate, endDate).numeric;
 
   const createdAt = () => {
     function shorterDate(date) {
@@ -50,12 +46,11 @@ function TicketForm() {
 
 
   const saveTask = () => {
-    setInputValue(inputValue);
-    
-    if (inputValue !== '') {
+    if (inputValue !== '' && timeDifferenceNumeric > 0) {
+      setInputValue(inputValue);
       createdAt(Date());
-      const newSecsToSum = getTimeToSum(startDate, endDate);
-      setSecsToSum(newSecsToSum);
+      const timeDiffResult = getTimeDifference(startDate, endDate);
+      setSecsToSum(timeDiffResult.numeric);
       
       const newItem = {
         id: Math.random(),
@@ -64,13 +59,13 @@ function TicketForm() {
         numericStartDate: startDate,
         endDate: endDateForModal,
         createdTime: formattedTimeForModal,
-        duration: timeDifference,
-        durationNumeric: newSecsToSum,
+        duration: timeDiffResult.formatted,
+        durationNumeric: timeDiffResult.numeric,
       };
       
       setItems([...items, newItem]);
       setInputValue('');
-    }
+    } 
   };
 
 
@@ -117,7 +112,7 @@ function TicketForm() {
         <div>
           <DatePicker
             id="end-datepicker"
-            minDate={startDate}
+            minDate={new Date(startDate)}
             onChange={(date) => setEndDate(date)}
             showIcon
             selected={endDate}
@@ -132,7 +127,8 @@ function TicketForm() {
       </div>
 
       <div id='task-time'>
-        {`${timeDifference}`}
+        {`${timeDifferenceFormatted}`}
+        {/* {timeDifferenceNumeric <= 0 ? '0 h 0 min' : timeDifferenceFormatted} */}
       </div>
 
       <button

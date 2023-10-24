@@ -12,7 +12,7 @@
     font-size: calc(14px + 1vmin);
     color: slategrey;
     font-weight: 900;
-    min-width: calc(50px + 5vmin);
+    min-width: calc(60px + 5vmin);
 }
 
 #sum {
