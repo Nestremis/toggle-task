@@ -7,14 +7,20 @@ import SortedItems from './SortedItems';
 import { ReactComponent as PlusIcon } from '../icons/plus.svg';
 
 function TicketForm() {
-  const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
   const [inputValue, setInputValue] = useState('');
   const [savedValue, setSavedValue] = useState('');
   const [duration, setDuration] = useState('');
+  const [timeDifferenceInSecs, setTimeDifferenceinSecs] = useState(0);
   const [secsToSum, setSecsToSum] = useState(0);
   const [items, setItems] = useState([]);
 
+
+  const handleInputChange = (event) => {
+    setInputValue(event.target.value);
+  };
+  
   function getTimeDifference(startDate, endDate) {
     const timeDifferenceInMilliseconds = endDate - startDate;
     const timeDifferenceInSeconds = Math.floor(timeDifferenceInMilliseconds / 1000);
@@ -27,10 +33,11 @@ function TicketForm() {
 
   function getTimeToSum(startDate, endDate) {
     const timeDifferenceInMilliseconds = endDate - startDate;
-    const timeDifferenceInSecs = Math.floor(timeDifferenceInMilliseconds / 1000);
-
-    return timeDifferenceInSecs;
+    const timeDifferenceInSeconds = Math.floor(timeDifferenceInMilliseconds / 1000);
+    
+    return timeDifferenceInSeconds;
   }
+  let timeDifferenceInSeconds;
   const startDateForModal = startDate.toLocaleString();
   const endDateForModal = endDate.toLocaleString();
   
@@ -45,19 +52,17 @@ function TicketForm() {
     return formattedTime;
   }
   const formattedTimeForModal = createdAt();
-  
-  const handleInputChange = (event) => {
-    setInputValue(event.target.value);
-  };
 
   const saveTask = () => {
     setSavedValue(inputValue);
+    setTimeDifferenceinSecs(timeDifferenceInSeconds);
     if (inputValue !== '') {
       createdAt(Date());
       const newItem = {
         id: Math.random(),
         name: inputValue,
         duration: timeDifference,
+        durationInSec: timeDifferenceInSeconds,
         startDate: startDateForModal,
         numericStartDate: startDate,
         endDate: endDateForModal,
@@ -80,7 +85,8 @@ function TicketForm() {
   };
 
   return (
-    <><div className='ticket'>
+    <>
+    <div className='ticket'>
 
       <input
         type="text"
@@ -94,6 +100,7 @@ function TicketForm() {
         <div>
           <DatePicker
             id="start-datepicker"
+            minDate={new Date()}
             showIcon
             selected={startDate}
             onChange={(date) => setStartDate(date)}
@@ -102,17 +109,13 @@ function TicketForm() {
             timeInputLabel="Time:"
             dateFormat="MMMM d, yyyy h:mm aa"
             showTimeSelect
-
-            minDate={new Date()}
             fixedHeight
-
-            arrow={<div style={{ backgroundColor: "red" }}>arrow</div>}
-            // showPopperArrow={false}
           />
         </div>
         <div>
           <DatePicker
             id="end-datepicker"
+            // minDate={new Date()}
             minDate={startDate}
             showIcon
             selected={endDate}
@@ -122,6 +125,7 @@ function TicketForm() {
             timeInputLabel="Time:"
             dateFormat="MMMM d, yyyy h:mm aa"
             showTimeSelect 
+            fixedHeight
           />
         </div>
       </div>
@@ -139,11 +143,10 @@ function TicketForm() {
       >
         <PlusIcon className="plus" width="7vmin" height="7vmin" />
       </button>
-      </div>
+    </div>
 
     <SummedTime secsToSum={secsToSum} />   
     <SortedItems items={sortedItems} removeItem={removeItem} />
-
     </>
   );
 }

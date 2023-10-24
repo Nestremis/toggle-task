@@ -17,4 +17,3 @@ function SortedItems({ items, removeItem }) {
 }
 
 export default SortedItems;
-

@@ -1,7 +1,7 @@
 .modal {
     position: fixed;
     z-index: 100;
-    top: 40%;
+    top: 25%;
     left: 50%;
     transform: translateX(-50%);
     background-color: whitesmoke;
@@ -22,7 +22,7 @@
         opacity: 0;
     }
     100% {
-        top: 40%;
+        top: 25%;
         opacity: 1;
     }
 }
