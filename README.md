@@ -1,4 +1,6 @@
-npm i nanoid
+Code alive: 
+
+
 
 # Getting Started with Create React App
 
