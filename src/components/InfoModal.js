@@ -1,37 +1,22 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './InfoModal.css';
-import { ReactComponent as DeleteIcon } from '../icons/cross.svg';
 
-function InfoModal({ item, removeItem }) {
-  const [showInfo, setShowInfo] = useState(false);
-
-  const handleClick = () => {
-    setShowInfo(!showInfo);
-  };
+function InfoModal({ item, showInfo, onClose }) {
+  if (!item) {
+    return null; 
+  }
+  const modalStyle = showInfo ? {} : { display: 'none' };
 
   return (
-
-    <div 
-      className="items" 
-      key={item.id} 
-      id={item.id} 
-      onClick={handleClick}
-    >
-      {item.name}
-      
-      <div 
-        className="remove-button" 
-        onClick={() => removeItem(item.id)}
-      >
-        <DeleteIcon className="delete" width="4vmin" height="4vmin" />
-      </div>
-
+    <div>
       {showInfo && (
         <div 
           className="modal"
-          key={item.key}
           id={item.id}
+          style={modalStyle}
         >
+          <button className="close-button" onClick={onClose}>Close</button>
+
           <div className="modal-content"> 
             <div className="modal-line">Task: <span className="bolder">{item.name}</span></div>
             <div className="modal-line">Duration: <span className="bolder">{item.duration}</span></div>

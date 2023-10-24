@@ -93,7 +93,7 @@ function TicketForm() {
         value={inputValue}
         onChange={handleInputChange}
         placeholder="Add task" 
-        id="task-name"
+        id="placeholder"
       />
 
       <div className="pickers">

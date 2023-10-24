@@ -18,7 +18,7 @@
       }
 }
 
-#task-name {
+#placeholder {
     border-radius: 8px;
     min-height: 3vh;
     min-width: calc(30px + 12vmin);
@@ -27,7 +27,7 @@
     font-size: calc(15px + 0.5vmin);
     margin: 5px 15px;
 }
-#task-name:focus{
+#placeholder:focus{
     outline: none;
     color:darkslategray;
     background-color: #e5d9bb;
