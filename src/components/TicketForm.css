@@ -1,6 +1,7 @@
 .ticket {
     position: relative;
-    background: linear-gradient(0deg, rgba(64,78,79,1) 0%, rgba(110,127,128,1) 100%);    min-height: 8vh;
+    background: linear-gradient(0deg, rgba(64,78,79,1) 0%, rgba(110,127,128,1) 100%);    
+    min-height: 8vh;
     margin: 5px;
     border-radius: 8px;
     display: flex;
@@ -21,7 +22,7 @@
 
 #placeholder {
     border-radius: 8px;
-    min-height: 3vh;
+    min-height: calc(25px + 1vmin);
     min-width: calc(30px + 12vmin);
     background-color: #f0eadc;
     box-shadow: inset 1px 1px 4px 1px #232323;
@@ -62,7 +63,7 @@
 
 
 #task-time {
-    font-size: calc(10px + 1vw);
+    font-size: calc(10px + 1vmin);
     font-weight: bolder;
     color: beige;
     margin-right: 14vw;
@@ -70,6 +71,7 @@
 
     @media screen and (max-width: 900px) {
         margin: auto;
+        margin-bottom: 5px;
       }
 }
 

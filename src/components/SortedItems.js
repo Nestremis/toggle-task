@@ -30,7 +30,7 @@ function SortedItems({ items, removeItem }) {
               className="remove-button"
               onClick={() => removeItem(item.id, item.durationNumeric)}
             >
-              <DeleteIcon className="delete" width="3vmin" height="3vmin" />
+              <DeleteIcon className="delete" width="4vmin" height="4vmin" />
             </div>
           </div>
 

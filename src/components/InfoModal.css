@@ -10,7 +10,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px dashed #9c2600;
+    border: 3px dashed#9c2600;
     border-radius: 5px;
     box-shadow: 8px 8px 20px 4px #414141;
     animation: hopIn 300ms ease;

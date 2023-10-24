@@ -7,6 +7,6 @@ header {
 }
 
 h1{
-    color: 	#92c006;
     font-size: calc(14px + 2vmin);
+    color: 	#92c006;
 }
