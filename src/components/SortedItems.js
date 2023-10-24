@@ -1,22 +1,3 @@
-// import React from 'react';
-// import './SortedItems.css';
-// import InfoModal from './InfoModal';
-
-// function SortedItems({ items, removeItem }) {
-//   return (
-//     <div>
-//       {items.map((item) => (
-//         <InfoModal 
-//           key={item.id} 
-//           item={item} 
-//           removeItem={removeItem} 
-//         />
-//       ))}
-//     </div>
-//   );
-// }
-
-// export default SortedItems;
 import React, {useState} from 'react';
 import './SortedItems.css';
 import InfoModal from './InfoModal';
@@ -47,16 +28,15 @@ function SortedItems({ items, removeItem }) {
             {item.name}
             <div
               className="remove-button"
-              onClick={() => removeItem(item.id)}
+              onClick={() => removeItem(item.id, item.durationNumeric)}
             >
-              <DeleteIcon className="delete" width="5vmin" height="5vmin" />
+              <DeleteIcon className="delete" width="3vmin" height="3vmin" />
             </div>
           </div>
 
           <InfoModal
             key={item.id}
             item={items.find((item) => item.id === showInfo)}
-            removeItem={removeItem}
             showInfo={showInfo} 
             onClose={() => setShowInfo(null)}
           />
